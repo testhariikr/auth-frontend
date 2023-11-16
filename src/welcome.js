@@ -56,7 +56,6 @@ function WelcomeUser() {
       <footer className="App-header">
         <div >
           This Website will have many feature in upcoming days {fstname}....Thank you
-
         </div>
         <br></br>
         <div >
