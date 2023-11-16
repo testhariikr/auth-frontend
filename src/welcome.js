@@ -23,7 +23,7 @@ function WelcomeUser() {
      })
      console.log(data)
     if(data.user===true){
-      setfstname(data.userName)
+      setfstname(data.fstName)
       return setname(data.userName)
     }
     setname("can't get name")
@@ -41,7 +41,7 @@ function WelcomeUser() {
   return (
     <div className="App">
       <header className="App-header">
-          Welcome
+          Welcomee
         <div>
           <p>
             {name}
@@ -52,16 +52,19 @@ function WelcomeUser() {
             <button onClick={Logout}>Logout</button>
         </div>
       </header>
-      <footer>
-        <div>
+      <div className="App">
+      <footer className="App-header">
+        <div >
           This Website will have many feature in upcoming days {fstname}....Thank you
 
         </div>
         <br></br>
-        <div>
+        <div >
           Team Harii Prasath K R
         </div>
       </footer>
+      </div>
+      
     </div>
   );
   }
