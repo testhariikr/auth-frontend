@@ -23,7 +23,7 @@ function Register() {
 
   useEffect(() => {
     cheklogin();
-  }, []);
+  });
 
   function handelinpcng(event){
     const{name,value}=event.target;
