@@ -41,7 +41,7 @@ function WelcomeUser() {
   return (
     <div className="App">
       <header className="App-header">
-          Welcomee
+          Welcome
         <div>
           <p>
             {name}
