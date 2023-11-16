@@ -10,7 +10,7 @@ import WelcomeUser from "./welcome";
 function App() {
     return(
             <Routes>
-                <Route path="/" element={<Register/>}/>
+                <Route path="/"  element={<Register/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/forgetpassword" element={<Forgetpassword/>}/>
                 <Route path="/hellouser" element={<WelcomeUser/>}/>
