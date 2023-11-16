@@ -49,7 +49,7 @@ function ResetPassword() {
         Reset Password
         <div>
           <br></br>
-          <input name="password" placeholder="Password" value={inpdata.password} onChange={handelinpcng} />
+          <input name="password" placeholder="Password" type="password" value={inpdata.password} onChange={handelinpcng} />
           <br></br>
           <button onClick={HandelSumit}>Submit</button>
         </div>

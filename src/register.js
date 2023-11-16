@@ -69,15 +69,15 @@ function Register() {
         Register
         <div>
           <br></br>
-          <input name="userName" placeholder="User Name" value={inpdata.userName} onChange={handelinpcng}/>
+          <input name="userName"  placeholder="User Name" value={inpdata.userName} onChange={handelinpcng}/>
           <br></br>
           <input name="fstName" placeholder="First Name" value={inpdata.fstName} onChange={handelinpcng}/>
           <br></br>
           <input name="lstName" placeholder="Last Name" value={inpdata.lstName} onChange={handelinpcng}/>
           <br></br>
-          <input name="email" placeholder="Email" value={inpdata.email} onChange={handelinpcng}/>
+          <input name="email" type="email" placeholder="Email" value={inpdata.email} onChange={handelinpcng}/>
           <br></br>
-          <input name="password" placeholder="Password" value={inpdata.password} onChange={handelinpcng}/>
+          <input name="password" type="passsword" placeholder="Password" value={inpdata.password} onChange={handelinpcng}/>
           <br></br>
           <button onClick={HandelSumit}>Submit</button>
           <br></br>

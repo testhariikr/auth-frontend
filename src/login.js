@@ -58,9 +58,9 @@ function Login() {
         Login
         <div>
           <br></br>
-          <input name="email" placeholder="Email" value={inpdata.email} onChange={handelinpcng}/>
+          <input name="email" placeholder="Email" type="email" value={inpdata.email} onChange={handelinpcng}/>
           <br></br>
-          <input name="password" placeholder="Password" value={inpdata.password} onChange={handelinpcng}/>
+          <input name="password" placeholder="Password" type="password" value={inpdata.password} onChange={handelinpcng}/>
           <br></br>
           <button onClick={HandelSumit}>Submit</button>
           <br></br>
