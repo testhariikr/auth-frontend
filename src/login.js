@@ -3,61 +3,71 @@ import './App.css';
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+
 function Login() {
-  const navigate=useNavigate();
-  const [auth,setauth]=useState("")
-  const [inpdata,setInpdata]=useState({
-   
-    email:"" ,
-    password:""
-});
+  const navigate = useNavigate();
+  const [auth, setAuth] = useState("");
+  const [inpdata, setInpdata] = useState({
+    email: "",
+    password: ""
+  });
 
-function handelinpcng(event){
-    const{name,value}=event.target;
+  function handelinpcng(event) {
+    const { name, value } = event.target;
     setInpdata(
-        (inpdta)=>(
-            {...inpdata,[name]:value }
-        )
-    )
-}
+      (inpdta) => (
+        { ...inpdata, [name]: value }
+      )
+    );
+  }
 
-async function HandelSumit(e){
-  e.preventDefault ()
-  const {data} = await axios.post('https://auth-backend-9794.onrender.com/login', inpdata)
+  async function HandelSumit(e) {
+    e.preventDefault();
+
+    // Check if any input field is empty
+    for (const key in inpdata) {
+      if (inpdata[key] === "") {
+        setAuth("Please fill in all fields");
+        return;
+      }
+    }
+
+    const { data } = await axios.post('https://auth-backend-9794.onrender.com/login', inpdata);
 
     setInpdata({
-      
-      email:"" ,
-      password:""
+      email: "",
+      password: ""
     });
-    console.log(data)
-    if(data.status==="ok"){
+
+    console.log(data);
+
+    if (data.status === "ok") {
       localStorage.setItem('sesionToken', data.token);
       localStorage.setItem('Login', true);
-      setauth(data.token)
-      return navigate("/hellouser")
+      setAuth(data.token);
+      return navigate("/hellouser");
     }
+
     localStorage.setItem('Login', false);
-    setauth("could not verify")
-   
-}
+    setAuth("Could not verify");
+  }
 
   return (
     <div className="App">
       <header className="App-header">
-          Login
-          <div>
-              <br></br>
-              <input name="email" placeholder="Email" value={inpdata.email}  onChange={handelinpcng}/>
-              <br></br>
-              <input name="password" placeholder="Password" value={inpdata.password}  onChange={handelinpcng}/>
-              <br></br>
-              <button onClick={HandelSumit}>submit</button>
-              <br></br>
-              <Link to="/forgetpassword"><button >Forget Password ?</button></Link>
-              <br></br>
-              No Acount? <Link to="/">Create</Link>
-          </div>
+        Login
+        <div>
+          <br></br>
+          <input name="email" placeholder="Email" value={inpdata.email} onChange={handelinpcng}/>
+          <br></br>
+          <input name="password" placeholder="Password" value={inpdata.password} onChange={handelinpcng}/>
+          <br></br>
+          <button onClick={HandelSumit}>Submit</button>
+          <br></br>
+          <Link to="/forgetpassword"><button>Forget Password?</button></Link>
+          <br></br>
+          No Account ? <Link to="/">Create</Link>
+        </div>
         <div>
           <p>
             {auth}
@@ -69,4 +79,3 @@ async function HandelSumit(e){
 }
 
 export default Login;
-
