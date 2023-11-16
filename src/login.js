@@ -62,7 +62,7 @@ function Login() {
           <br></br>
           <input name="password" placeholder="Password" type="password" value={inpdata.password} onChange={handelinpcng}/>
           <br></br>
-          <button onClick={HandelSumit}>Submit</button>
+          <button onClick={HandelSumit}>Login</button>
           <br></br>
           <Link to="/forgetpassword"><button>Forget Password?</button></Link>
           <br></br>

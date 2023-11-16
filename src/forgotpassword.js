@@ -53,7 +53,7 @@ function Forgetpassword() {
           <br></br>
           <input name="email" placeholder="Email" type="email" value={inpdata.email} onChange={handelinpcng} />
           <br></br>
-          <button onClick={HandelSumit}>Submit</button>
+          <button onClick={HandelSumit}>Send Mail</button>
           <br></br>
           <Link to="/login"><button>Back</button></Link>
         </div>

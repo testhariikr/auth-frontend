@@ -77,9 +77,9 @@ function Register() {
           <br></br>
           <input name="email" type="email" placeholder="Email" value={inpdata.email} onChange={handelinpcng}/>
           <br></br>
-          <input name="password" type="passsword" placeholder="Password" value={inpdata.password} onChange={handelinpcng}/>
+          <input name="password" type="password" placeholder="Password" value={inpdata.password} onChange={handelinpcng}/>
           <br></br>
-          <button onClick={HandelSumit}>Submit</button>
+          <button onClick={HandelSumit}>Create</button>
           <br></br>
           Already have an Account <Link to="/login">Login.</Link>
         </div>

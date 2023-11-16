@@ -23,11 +23,13 @@ function WelcomeUser() {
      })
      console.log(data)
     if(data.user===true){
+      setfstname(data.userName)
       return setname(data.userName)
     }
     setname("can't get name")
     }
   const [name,setname]=useState("")
+  const [fstname,setfstname]=useState("")
   useEffect(() => {
    getuser();
   }, []);
@@ -40,16 +42,26 @@ function WelcomeUser() {
     <div className="App">
       <header className="App-header">
           Welcome
-          
         <div>
           <p>
             {name}
+            <br></br>
           </p>
         </div>
         <div>
             <button onClick={Logout}>Logout</button>
         </div>
       </header>
+      <footer>
+        <div>
+          This Website will have many feature in upcoming days {fstname}....Thank you
+
+        </div>
+        <br></br>
+        <div>
+          Team Harii Prasath K R
+        </div>
+      </footer>
     </div>
   );
   }
