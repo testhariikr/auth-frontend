@@ -36,6 +36,7 @@ function Register() {
 
   async function HandelSumit(e){
     e.preventDefault();
+    setchckuser("Creating Account ....Please Wait ");
     for (const key in inpdata) {
       if (inpdata[key] === "") {
         setchckuser("Please fill in all fields");

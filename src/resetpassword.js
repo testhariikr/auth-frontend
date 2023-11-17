@@ -22,6 +22,7 @@ function ResetPassword() {
 
   async function HandelSumit(e) {
     e.preventDefault();
+    setAuth("Updating Password...Please Wait ");
     if (inpdata.password === "") {
       setAuth("Please enter a password");
       return;

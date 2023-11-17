@@ -20,8 +20,7 @@ function Forgetpassword() {
 
   async function HandelSumit(e) {
     e.preventDefault();
-
-    // Check if any input field is empty
+    setSendmail("Sending Mail...Please Wait ");
     for (const key in inpdata) {
       if (inpdata[key] === "") {
         setSendmail("Please fill in all fields");
@@ -38,9 +37,9 @@ function Forgetpassword() {
     console.log(data);
 
     if (data.status === "ok") {
-      setSendmail("Mail sent successfully");
+      setSendmail("Mail Sent Successfully...Check Your Mail Inbox");
     } else {
-      setSendmail("Mail not sent");
+      setSendmail("Mail not Sent...Because The enter mail is not Registered (or) Due to Some Error");
     }
   }
 

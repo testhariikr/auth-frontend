@@ -13,6 +13,7 @@ function WelcomeUser() {
 
     }
     async function getuser(){
+      
         const {data} = await axios.post('https://auth-backend-9794.onrender.com/userprofile', 
         { 
          nothig: ''
@@ -26,11 +27,13 @@ function WelcomeUser() {
       setfstname(data.fstName)
       return setname(data.userName)
     }
-    setname("can't get name")
+    setname("Can't Fetch Details")
+    navigate("/login")
     }
   const [name,setname]=useState("")
   const [fstname,setfstname]=useState("")
   useEffect(() => {
+  setname("Fetching Details....")
    getuser();
   }, []);
   

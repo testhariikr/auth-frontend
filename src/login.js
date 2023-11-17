@@ -23,8 +23,7 @@ function Login() {
 
   async function HandelSumit(e) {
     e.preventDefault();
-
-    // Check if any input field is empty
+    setAuth("Loging In... Please Wait");
     for (const key in inpdata) {
       if (inpdata[key] === "") {
         setAuth("Please fill in all fields");
@@ -49,7 +48,7 @@ function Login() {
     }
 
     localStorage.setItem('Login', false);
-    setAuth("Could not verify");
+    setAuth("Could't Verify");
   }
 
   return (
