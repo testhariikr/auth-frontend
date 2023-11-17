@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function WelcomeUser() {
+  
     const navigate=useNavigate();
     function Logout(){
         localStorage.setItem('Login', false);
@@ -13,7 +14,6 @@ function WelcomeUser() {
 
     }
     async function getuser(){
-      
         const {data} = await axios.post('https://auth-backend-9794.onrender.com/userprofile', 
         { 
          nothig: ''
@@ -30,12 +30,12 @@ function WelcomeUser() {
     setname("Can't Fetch Details")
     navigate("/login")
     }
-  const [name,setname]=useState("")
+  const [name,setname]=useState("Fetching Details....")
   const [fstname,setfstname]=useState("")
+  
   useEffect(() => {
-  setname("Fetching Details....")
    getuser();
-  }, []);
+  });
   
 
     
