@@ -160,7 +160,9 @@ function Notes() {
          }
      })
      console.log(data)
-     
+     if(!data.notes){
+      setmsg("No previous Notes")
+     }
     if(data.notes){
       setmsg(" ")
       setNotesData(data.notes)
