@@ -30,7 +30,7 @@ function WelcomeUser() {
     navigate("/login")
     }
   const [name,setname]=useState("Fetching Details....")
-  
+
   useEffect(() => {
    getuser();
   },[]);
