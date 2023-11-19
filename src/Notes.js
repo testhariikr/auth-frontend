@@ -193,6 +193,7 @@ function Notes() {
           <br></br>
           <button  onClick={HandelSumit}>Add</button>
           {(editstatus)?(<button onClick={()=>HandleUpdate()}>Uptdate</button>):<></>}
+          <br></br>
           {(NotesData.length)?(<input name="find" placeholder="Search by Title" type="text" value={serchvalue} onChange={HandleSearch}/>):<></>}
           <br></br>
           <br></br>
