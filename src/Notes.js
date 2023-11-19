@@ -5,10 +5,8 @@ import Card from 'react-bootstrap/Card';
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 //import { Link } from "react-router-dom/dist/umd/react-router-dom.development";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const lnk="https://auth-backend-9794.onrender.com/"
 function Notes() {
   const [msg, setmsg] = useState("Fetching Notes...");
@@ -151,13 +149,8 @@ function Notes() {
   
   }
 
-    const navigate=useNavigate();
-    function Logout(){
-        localStorage.setItem('Login', false);
-        localStorage.setItem('sesionToken', null);
-        navigate("/login")
-
-    }
+    
+    
     async function getnotesdata(){
       console.log(localStorage.getItem('sesionToken'))
         const {data} = await axios.get(lnk+'usernotes', 

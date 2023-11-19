@@ -24,14 +24,12 @@ function WelcomeUser() {
      })
      console.log(data)
     if(data.user===true){
-      setfstname(data.fstName)
       return setname(data.userName)
     }
     setname("Can't Fetch Details")
     navigate("/login")
     }
   const [name,setname]=useState("Fetching Details....")
-  const [fstname,setfstname]=useState("")
   
   useEffect(() => {
    getuser();
