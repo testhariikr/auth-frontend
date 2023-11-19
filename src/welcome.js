@@ -5,7 +5,6 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 const lnk="https://auth-backend-9794.onrender.com/"
 function WelcomeUser() {
-  
     const navigate=useNavigate();
     function Logout(){
         localStorage.setItem('Login', false);
