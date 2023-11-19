@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './App.css';
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+const lnk="https://auth-backend-9794.onrender.com/"
 function Forgetpassword() {
   const [sendmail, setSendmail] = useState("");
   const [inpdata, setInpdata] = useState({
@@ -28,7 +28,7 @@ function Forgetpassword() {
       }
     }
 
-    const { data } = await axios.post('https://auth-backend-9794.onrender.com/forgotpassword', inpdata);
+    const { data } = await axios.post(lnk+'forgotpassword', inpdata);
     
     setInpdata({
       email: ""

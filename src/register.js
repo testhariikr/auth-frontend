@@ -3,7 +3,7 @@ import './App.css';
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+const lnk="https://auth-backend-9794.onrender.com/"
 function Register() {
   const navigate=useNavigate();
   const [chckuser,setchckuser]=useState("")
@@ -44,7 +44,7 @@ function Register() {
       }
     }
 
-    const {data} = await axios.post('https://auth-backend-9794.onrender.com/register', inpdata);
+    const {data} = await axios.post(lnk+'register', inpdata);
 
     setInpdata({
       userName:"",

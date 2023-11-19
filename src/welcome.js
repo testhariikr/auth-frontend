@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import './App.css';
 import axios from "axios";
 //import { Link } from "react-router-dom/dist/umd/react-router-dom.development";
-import { useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+const lnk="https://auth-backend-9794.onrender.com/"
 function WelcomeUser() {
   
     const navigate=useNavigate();
@@ -14,7 +14,7 @@ function WelcomeUser() {
 
     }
     async function getuser(){
-        const {data} = await axios.post('https://auth-backend-9794.onrender.com/userprofile', 
+        const {data} = await axios.post(lnk+'userprofile', 
         { 
          nothig: ''
        },{ 
@@ -35,7 +35,7 @@ function WelcomeUser() {
   
   useEffect(() => {
    getuser();
-  });
+  },[]);
   
 
     
@@ -51,22 +51,13 @@ function WelcomeUser() {
             <br></br>
           </p>
         </div>
+        <br></br>
+        <br></br>
+        <Link to="/usernotes">Go Your Notes</Link>
         <div>
             <button onClick={Logout}>Logout</button>
         </div>
       </header>
-      <div className="App">
-      <footer className="App-header">
-        <div >
-          This Website will have many feature in upcoming days {fstname}....Thank you
-        </div>
-        <br></br>
-        <div>
-          Team Harii Prasath K R
-        </div>
-      </footer>
-      </div>
-      
     </div>
   );
   }

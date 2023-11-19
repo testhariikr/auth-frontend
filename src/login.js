@@ -3,7 +3,7 @@ import './App.css';
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+const lnk="https://auth-backend-9794.onrender.com/"
 function Login() {
   const navigate = useNavigate();
   const [auth, setAuth] = useState("");
@@ -31,7 +31,7 @@ function Login() {
       }
     }
 
-    const { data } = await axios.post('https://auth-backend-9794.onrender.com/login', inpdata);
+    const { data } = await axios.post(lnk+'login', inpdata);
 
     setInpdata({
       email: "",
