@@ -3,12 +3,15 @@ import './App.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 //import { Link } from "react-router-dom/dist/umd/react-router-dom.development";
 import { Link } from "react-router-dom";
 const lnk="https://auth-backend-9794.onrender.com/"
+
 function Notes() {
+  const navigate=useNavigate();
   const [msg, setmsg] = useState("Fetching Notes...");
   const [NotesData,setNotesData]=useState([])
   const [serchvalue,setserchvalue]=useState([])
@@ -149,7 +152,9 @@ function Notes() {
   
   }
 
-    
+  
+
+
     
     async function getnotesdata(){
       console.log(localStorage.getItem('sesionToken'))
@@ -160,10 +165,13 @@ function Notes() {
          }
      })
      console.log(data)
-     if(!data.notes){
+     if(data.user===false){
+      navigate("/login/usernotes")
+     }
+     else if(!data.notes){
       setmsg("No previous Notes")
      }
-    if(data.notes){
+    else if(data.notes){
       setmsg(" ")
       setNotesData(data.notes)
       setdispNotesData(data.notes)

@@ -3,8 +3,10 @@ import './App.css';
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom/dist/umd/react-router-dom.development";
 const lnk="https://auth-backend-9794.onrender.com/"
-function Login() {
+function Logiin() {
+  const { nextpage } = useParams();
   const navigate = useNavigate();
   const [auth, setAuth] = useState("");
   const [inpdata, setInpdata] = useState({
@@ -44,6 +46,9 @@ function Login() {
       localStorage.setItem('sesionToken', data.token);
       localStorage.setItem('Login', true);
       setAuth(data.token);
+      if(nextpage){
+        return navigate("/"+nextpage);
+      }
      navigate("/hellouser");
     }
 
@@ -77,4 +82,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Logiin;
