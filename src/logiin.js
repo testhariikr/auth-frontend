@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './App.css';
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -13,7 +13,15 @@ function Logiin() {
     email: "",
     password: ""
   });
+  function cheklogin(){
+    if(localStorage.getItem("Login")==="true"){
+      return navigate("/hellouser")
+    }
+  }
 
+  useEffect(() => {
+    cheklogin();
+  });
   function handelinpcng(event) {
     const { name, value } = event.target;
     setInpdata(
