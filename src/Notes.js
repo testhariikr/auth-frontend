@@ -249,7 +249,7 @@ function Notes() {
             
       </div>
         <div>
-            <Link to="/hellouser">Back</Link>
+            <Link to="/hellouser">Back(Home Page)</Link>
         </div>
       </header>
       <div className="App">
