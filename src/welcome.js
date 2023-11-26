@@ -3,7 +3,8 @@ import './App.css';
 import axios from "axios";
 //import { Link } from "react-router-dom/dist/umd/react-router-dom.development";
 import { Link, useNavigate } from "react-router-dom";
-const lnk="https://auth-backend-9794.onrender.com/"
+import linkmanager from "./link";
+const lnk=linkmanager();
 function WelcomeUser() {
     const navigate=useNavigate();
     function Logout(){

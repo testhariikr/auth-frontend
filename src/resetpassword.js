@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import './App.css';
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom/dist/umd/react-router-dom.development";
-
+import linkmanager from "./link";
+const lnk=linkmanager();
 function ResetPassword() {
   const navigate = useNavigate();
   const { resettoken } = useParams();
@@ -28,7 +29,7 @@ function ResetPassword() {
       return;
     }
 
-    const { data } = await axios.post(`https://auth-backend-9794.onrender.com/resetpassword/${resettoken}`, inpdata);
+    const { data } = await axios.post(`${lnk}resetpassword/${resettoken}`, inpdata);
 
     setInpdata({
       password: ""

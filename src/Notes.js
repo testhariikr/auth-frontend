@@ -8,7 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 //import { Link } from "react-router-dom/dist/umd/react-router-dom.development";
 import { Link } from "react-router-dom";
-const lnk="https://auth-backend-9794.onrender.com/"
+import linkmanager from "./link";
+const lnk=linkmanager();
 
 function Notes() {
   const navigate=useNavigate();
@@ -20,7 +21,9 @@ function Notes() {
   const [editdataid,seteditdataid]=useState("")
   const [inpdata,setinpdata]= useState({
     title: "",
-    content: ""
+    content: "",
+    date:"",
+    time:""
   });
   function HandleSearch(event){
     setserchvalue(event.target.value)
@@ -48,7 +51,10 @@ function Notes() {
   
   seteditdataid(id)
   console.log(editdta)
-  setinpdata(editdta[0]);
+  setinpdata({
+    ...editdta[0],
+    date: editdta[0].reminder.date,time:editdta[0].reminder.time
+  });
   }
   function handelinpcng(event) {
     const { name, value } = event.target;
@@ -57,6 +63,7 @@ function Notes() {
         { ...inpdata, [name]: value }
       )
     );
+    
   }
   async function HandleUpdate(){
     setserchvalue('')
@@ -72,7 +79,9 @@ function Notes() {
      {
       dataid:editdataid,
       title:inpdata.title,
-      content:inpdata.content
+      content:inpdata.content,
+      time:inpdata.time,
+      date:inpdata.date
     },
         { 
          headers: {
@@ -88,7 +97,9 @@ function Notes() {
       seteditdataid("")
       setinpdata({
         title: "",
-        content: ""
+        content: "",
+        date:"",
+        time:""
       });
       return 
     }
@@ -100,7 +111,9 @@ function Notes() {
     seteditstatus(false)
     setinpdata({
       title: "",
-      content: ""
+      content: "",
+      date:"",
+      time:""
     });
     const {data} = await axios.post(lnk+'dlt',
      {
@@ -123,6 +136,7 @@ function Notes() {
   }
   async function HandelSumit(e) {
     e.preventDefault();
+    console.log(inpdata)
     setserchvalue('')
     for (const key in inpdata) {
       if (inpdata[key] === "") {
@@ -143,7 +157,9 @@ function Notes() {
     setdispNotesData(data.notes)
     setinpdata({
       title: "",
-      content: ""
+      content: "",
+      date:"",
+      time:""
     });
     setmsg(" ");
     return 
@@ -195,19 +211,23 @@ function Notes() {
     <div className="App">
       
       <header className="App-header">
-      <div>
-          <br></br>
-          <input name="title" placeholder="Title" type="text" value={inpdata.title} onChange={handelinpcng}/>
-          <br></br>
-          <input name="content" placeholder="Write Notes" type="text" value={inpdata.content} onChange={handelinpcng}/>
-          <br></br>
-          <button  onClick={HandelSumit}>Add</button>
-          {(editstatus)?(<button onClick={()=>HandleUpdate()}>Uptdate</button>):<></>}
-          <br></br>
-          {(NotesData.length)?(<input name="find" placeholder="Search by Title" type="text" value={serchvalue} onChange={HandleSearch}/>):<></>}
-          <br></br>
-          <br></br>
-        </div>
+        <div>
+            <br></br>
+            <input name="title" placeholder="Title" type="text" value={inpdata.title} onChange={handelinpcng}/>
+            <br></br>
+            <input name="content" placeholder="Write Notes" type="text" value={inpdata.content} onChange={handelinpcng}/>
+            <br></br>
+            <input type="date" value={inpdata.date} name="date" onChange={handelinpcng}/>
+            <input type="time" value={inpdata.time} name="time" onChange={handelinpcng} />
+            <br></br>
+            <button  onClick={HandelSumit}>Add</button>
+            {(editstatus)?(<button onClick={()=>HandleUpdate()}>Uptdate</button>):<></>}
+            <br></br>
+            {(NotesData.length)?(<input name="find" placeholder="Search by Title" type="text" value={serchvalue} onChange={HandleSearch}/>):<></>}
+            <br></br>
+            <br></br>
+            
+          </div>
         <div>
           {msg}
           <br></br>
@@ -237,6 +257,7 @@ function Notes() {
                 >
                   Edit {data.title}
                 </Button>
+                <Card.Text>{JSON.parse(JSON.stringify(data.reminder)).date}@{JSON.parse(JSON.stringify(data.reminder)).time}</Card.Text>
               </Card.Body>
             </Card>
           ))}

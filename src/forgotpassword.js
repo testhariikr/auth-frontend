@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import './App.css';
 import axios from "axios";
 import { Link } from "react-router-dom";
-const lnk="https://auth-backend-9794.onrender.com/"
+import linkmanager from "./link";
+const lnk=linkmanager();
 function Forgetpassword() {
   const [sendmail, setSendmail] = useState("");
   const [inpdata, setInpdata] = useState({

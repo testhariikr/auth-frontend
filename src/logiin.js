@@ -4,7 +4,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom/dist/umd/react-router-dom.development";
-const lnk="https://auth-backend-9794.onrender.com/"
+import linkmanager from "./link";
+const lnk=linkmanager();
 function Logiin() {
   const { nextpage } = useParams();
   const navigate = useNavigate();
