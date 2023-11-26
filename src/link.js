@@ -1,6 +1,6 @@
 function linkmanager(){
     return(
-        "http://localhost:4000/"
+        "https://auth-backend-9794.onrender.com/"
     )
 }
 export default linkmanager;
