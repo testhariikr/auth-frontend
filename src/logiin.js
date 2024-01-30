@@ -42,7 +42,7 @@ function Logiin() {
       }
     }
 
-    const { data } = await axios.post(lnk+'login', inpdata);
+    const { data } = await axios.post(lnk+'auth/login', inpdata);
 
     setInpdata({
       email: "",
@@ -77,7 +77,7 @@ function Logiin() {
           <br></br>
           <button onClick={HandelSumit}>Login</button>
           <br></br>
-          <Link to="/forgetpassword"><button>Forget Password?</button></Link>
+          <Link to="/auth/forgetpassword"><button>Forget Password?</button></Link>
           <br></br>
           No Account ? <Link to="/">Create</Link>
         </div>

@@ -18,7 +18,7 @@ function Register() {
 
   function cheklogin(){
     if(localStorage.getItem("Login")==="true"){
-      return navigate("/hellouser")
+      return navigate("/user")
     }
   }
 
@@ -45,7 +45,7 @@ function Register() {
       }
     }
 
-    const {data} = await axios.post(lnk+'register', inpdata);
+    const {data} = await axios.post(lnk+'auth/signin', inpdata);
 
     setInpdata({
       userName:"",
@@ -59,7 +59,7 @@ function Register() {
 
     if(data.status==="ok"){
       setchckuser("Login okay");
-      return navigate("/login");
+      return navigate("/auth/login");
     }
 
     setchckuser("Already exist");
@@ -83,7 +83,7 @@ function Register() {
           <br></br>
           <button onClick={HandelSumit}>Create</button>
           <br></br>
-          Already have an Account <Link to="/login">Login.</Link>
+          Already have an Account <Link to="/auth/login">Login.</Link>
         </div>
         <div>
           <p>

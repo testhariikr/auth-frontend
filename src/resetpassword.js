@@ -29,7 +29,7 @@ function ResetPassword() {
       return;
     }
 
-    const { data } = await axios.post(`${lnk}resetpassword/${resettoken}`, inpdata);
+    const { data } = await axios.post(`${lnk}auth/resetpassword/${resettoken}`, inpdata);
 
     setInpdata({
       password: ""
@@ -39,7 +39,7 @@ function ResetPassword() {
 
     if (data.status === "ok") {
       setAuth("Password reset successful");
-      return navigate("/login");
+      return navigate("/auth/login");
     }
 
     setAuth("Could not reset password");

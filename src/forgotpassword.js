@@ -29,7 +29,7 @@ function Forgetpassword() {
       }
     }
 
-    const { data } = await axios.post(lnk+'forgotpassword', inpdata);
+    const { data } = await axios.post(lnk+'auth/forgotpassword', inpdata);
     
     setInpdata({
       email: ""
@@ -55,7 +55,7 @@ function Forgetpassword() {
           <br></br>
           <button onClick={HandelSumit}>Send Mail</button>
           <br></br>
-          <Link to="/login"><button>Back</button></Link>
+          <Link to="/auth/login"><button>Back</button></Link>
         </div>
         <div>
           <p>

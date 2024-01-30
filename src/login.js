@@ -12,7 +12,7 @@ function Login() {
     email: "",
     password: ""
   });
-
+  
   function handelinpcng(event) {
     const { name, value } = event.target;
     setInpdata(
@@ -32,7 +32,7 @@ function Login() {
       }
     }
 
-    const { data } = await axios.post(lnk+'login', inpdata);
+    const { data } = await axios.post(lnk+'/auth/login', inpdata);
 
     setInpdata({
       email: "",
@@ -45,7 +45,7 @@ function Login() {
       localStorage.setItem('sesionToken', data.token);
       localStorage.setItem('Login', true);
       setAuth(data.token);
-     navigate("/hellouser");
+     return navigate("/user");
     }
 
     localStorage.setItem('Login', false);
@@ -64,7 +64,7 @@ function Login() {
           <br></br>
           <button onClick={HandelSumit}>Login</button>
           <br></br>
-          <Link to="/forgetpassword"><button>Forget Password?</button></Link>
+          <Link to="/auth/forgetpassword"><button>Forget Password?</button></Link>
           <br></br>
           No Account ? <Link to="/">Create</Link>
         </div>
